@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>로또 추첨</title>
+    <script>
+        function generateLottoNumbers() {
+            var lottoNumbers = [];
+            
+            while (lottoNumbers.length < 6) {
+                var randomNumber = Math.floor(Math.random() * 45) + 1;
+                
+                // 중복된 번호 방지
+                if (lottoNumbers.indexOf(randomNumber) === -1) {
+                    lottoNumbers.push(randomNumber);
+                }
+            }
+            
+            // 결과를 화면에 표시
+            var resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = "로또 번호: " + lottoNumbers.join(", ");
+        }
+    </script>
+</head>
+<body>
+    <h1>로또 추첨</h1>
+    <button onclick="generateLottoNumbers()">로또 번호 생성</button>
+    <div id="result"></div>
+</body>
+</html>
